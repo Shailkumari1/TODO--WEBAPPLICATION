@@ -4,10 +4,9 @@ import Todo_list from './Todo_list'
 const Todo = () => {
 
   const [todolist,settodolist]= useState([]);
-
-
   const inputref = useRef();
 
+  //  -----add task function ----
   const add = () => {
     const inputtext= inputref.current.value.trim();
     
@@ -23,6 +22,13 @@ const Todo = () => {
         settodolist((prev)=>[...prev, newtask]);
         inputref.current.value = "";
 }
+        // Delete task function
+
+        const deletetodo = (id) => {
+          settodolist((prev)=> {
+            return prev.filter((task) => task.id !== id );
+          })
+        }
   
   return (
     <div className='bg-white place-self-center-safe w-2xl max-w-3xl p-4 min-h-[600px] rounded-2xl'>
@@ -47,7 +53,7 @@ const Todo = () => {
         <div>
 
           {todolist.map((item, index)=>{
-            return <Todo_list key ={index} text ={item.text} id={item.id} iscompleted ={item.iscompleted} />
+            return <Todo_list key ={index} text ={item.text} id={item.id} iscompleted ={item.iscompleted} deletetodo={deletetodo} />
 
           })}
           

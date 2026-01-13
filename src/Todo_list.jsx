@@ -3,7 +3,7 @@ import todo_list_icon from './assets/Delete.png'
 import todo_incomplete_icon from './assets/circle.png'
 import todo_complete_icon from './assets/tick.png'
 
-const Todo_list = ({text}) => {
+const Todo_list = ({text, id , iscompleted,deletetodo }) => {
   return (
     <div>
         {/* ----- tasks section----- */}
@@ -13,7 +13,7 @@ const Todo_list = ({text}) => {
                 <p className='text-pink-500 ml-4 text-[20px]'> {text} </p>
             </div>
 
-             <img className='w-7 cursor-pointer' src={todo_list_icon} alt="Delete icon " />
+             <img  onClick={()=>{deletetodo(id)}} className='w-7 cursor-pointer' src={todo_list_icon} alt="Delete icon " />
         </div>
     </div>
   )
