@@ -1,6 +1,6 @@
 import React from 'react'
 import todo_list_icon from './assets/Delete.png'
-import todo_incomplete_icon from "./assets/circle.png"
+import todo_incomplete_icon from "./assets/Circle.png"
 import todo_complete_icon from './assets/tick.png'
 
 const Todo_list = ({text, id , iscompleted,deletetodo,toggle }) => {
